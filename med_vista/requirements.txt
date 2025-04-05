@@ -1,0 +1,9 @@
+Flask
+pandas
+openpyxl
+apscheduler
+twilio
+werkzeug
+flask-cors
+google-generativeai
+uuid

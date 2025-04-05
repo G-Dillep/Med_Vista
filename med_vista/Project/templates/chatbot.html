@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedXpert - Chatbot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #00796b, #004d40);
+            padding: 15px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            margin-top: 30px;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+
+        .chat-message {
+            margin: 10px 0;
+        }
+
+        .chat-message.user {
+            text-align: right;
+            color: #00796b;
+        }
+
+        .chat-message.bot {
+            text-align: left;
+            color: #2c3e50;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005b4f;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">MedXpert Chatbot</a>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Ask Your Question</h2>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="chat-form">
+            <input type="text" id="user-input" placeholder="Type your question here..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const chatBox = document.getElementById('chat-box');
+            const userInput = document.getElementById('user-input');
+            const question = userInput.value.trim();
+
+            if (question) {
+                // Add user message to chat
+                addMessageToChat('user', question);
+
+                // Clear input
+                userInput.value = '';
+
+                // Add loading message
+                const loadingMessage = addMessageToChat('bot', 'Thinking...');
+
+                try {
+                    // Send question to the backend
+                    const response = await fetch('http://127.0.0.1:5000/ask', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ question })
+                    });
+
+                    const data = await response.json();
+
+                    // Replace loading message with bot's response
+                    loadingMessage.textContent = `Bot: ${data.answer}`;
+                } catch (error) {
+                    console.error('Error:', error);
+                    loadingMessage.textContent = 'Bot: There was an error processing your question.';
+                }
+            }
+        });
+
+        function addMessageToChat(sender, message) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.textContent = `${sender === 'user' ? 'You' : 'Bot'}: ${message}`;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            return messageDiv;
+        }
+    </script>
+</body>
+</html>

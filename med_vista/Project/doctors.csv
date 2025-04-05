@@ -1,0 +1,7 @@
+doctor_id,name,specialization,location,email,password,mobile_number,geolocation
+1003,chandini,Cardiologist,plmr,chandini@gmail.com,123,0000000000,111222
+1004,Komala,Dermatologist,Ananthapur,Komala@gmail.com,123156,2222222222,"11,22,33"
+23286,karthikeya,Neurologist,Vijayawada,karthikeya@gmail.com,123,7013754319,"1,2"
+21555,dhanush,Gynecologist,chittoor,dhanush@gmail.com,21555,9390759085,"11,22"
+2308,charishma,Oncologist,chittoor,charishma@gmail.com,scrypt:32768:8:1$R4VfeffpaZyIdF15$4b39d93ce3f54805d37c194b83448b11229c98ea62d87542b7c3a6596369408f2668a5eb1da9f143d59dfa34783bac31725f3178725da31132a510064a380259,8332864538,"11,11"
+23097,komala,Cardiologist,nellore,komala@gmail.com,scrypt:32768:8:1$Qii3Hvm1o5tFxNPY$ec92ca75d8ab173b896064e66f0ca8e06b5d05a086610219b1ef7176356ef5fe3dba5155a444dadbc8bc99c0285a8453bcbddfd90c7d969091dabb6b55040d7e,6303841449,24742774247

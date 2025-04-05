@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedXpert - Doctor Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 420px;
+            max-width: 95%;
+        }
+
+        .form h1 {
+            color: #e65100;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form input[type="text"], .form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1e7fd;
+            border-radius: 5px;
+            background: #f7fbff;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .form input:focus {
+            border-color: #e65100;
+            outline: none;
+        }
+
+        .form .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #e65100;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .form .btn-primary:hover {
+            background-color: #bf360c;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('doctor_login') }}" method="post" class="form">
+        <h1>Doctor Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username" required>
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password" required>
+        <button class="btn-primary">Login</button>
+    </form>
+</body>
+</html>

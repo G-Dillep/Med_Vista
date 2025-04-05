@@ -1,0 +1,5 @@
+fullname,username,dob,mobile_number,email,address,password
+
+reddy,reddy0000,2024-12-03,8332864538,reddy@gmail.com,"chittoor
+",scrypt:32768:8:1$59fX08HiGsP28FyI$559b80b6546fc998e4d3c29e3a5661eefe197236baa980184e3bd26312d0781c286153243a8f1c19f0ee6876cdfc4cd316d88e808c137965da14c03dd1806daa
+Komala,komala,2024-12-05,6303841449,Komala@gmail.com,kadiri,scrypt:32768:8:1$bP0ykgiQvU4P3mDc$a9d4ece0d1db5801d8dcf680d6f9d8939529cc1ac2e18b9a9adc8060fa62b3c310ef8a13be899785f2e91f0d743f1f01237a2c2652f06877e6ac4015cdbf7ba7

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedXpert - Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #00796b, #004d40);
+            padding: 20px 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.1);
+        }
+
+        .navbar-toggler {
+            border-color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'%3E%3E%3Cpath stroke='rgba(255, 255, 250, 0.7)' stroke-width='2' d='M4 7h22M4 15h25M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d1e7dd;
+            transform: scale(1.1);
+        }
+
+        .full-screen {
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-in-out forwards;
+            width: 100%;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            color: #00796b;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+
+        .intro-points {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .intro-points ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .intro-points li {
+            font-size: 1.1em;
+            color: #344950;
+            margin-bottom: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature h2 {
+            color: #00796b;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-size: 1em;
+            color: #34495e;
+        }
+
+        .highlight {
+            animation: highlightPulse 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes highlightPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+            animation: pulse 2.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .pulse-effect {
+            animation: pulseEffect 1.5s infinite alternate ease-in-out;
+            background: rgba(0, 150, 136, 0.2);
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @keyframes pulseEffect {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .feature-grid a {
+    text-decoration: none; /* Remove underline for feature links */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+                <img src="static/images/images.png" alt="MedXpert Logo" width="60">
+                MedXpert
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search_for_medicine">Medicine Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/remainderpage">Remainder</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/chatbot">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/online-appointment">Online Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search_for_doctor">Nearby Doctor</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="full-screen">
+        <div class="container">
+            <img src="static/images/images.png" alt="MedXpert Logo" class="logo">
+            <h1>Welcome to MedXpert</h1>
+            <p>Your trusted medical companion for all your health needs.</p>
+            <div class="pulse-effect"></div>
+            <div class="intro-points">
+                <ul>
+                    <li>Comprehensive medicine search and information.</li>
+                    <li>Personalized medication reminders to keep you on track.</li>
+                    <li>Instant medical advice through our AI-powered chatbot.</li>
+                    <li>Easy online appointment scheduling with healthcare providers.</li>
+                    <li>Find nearby doctors for immediate care.</li>
+                </ul>
+            </div>
+            <div class="feature-grid">
+                <a href="/search_for_medicine">
+                    <div class="feature">
+                        <h2>Medicine Search</h2>
+                        <p>Find the right medicine for your condition quickly and easily.</p>
+                    </div>
+                </a>
+                <a href="/remainderpage">
+                <div class="feature">
+                    <h2>Remainder</h2>
+                    <p>Never miss a dose with our medication reminder service.</p>
+                </div>
+                </a>
+                <a href="/chatbot">
+                <div class="feature">
+                    <h2>Chatbot</h2>
+                    <p>Get instant medical advice and answers from our AI-powered chatbot.</p>
+                </div>
+                </a>
+                <a href="/search_for_doctor">
+                <div class="feature">
+                    <h2>Nearby Doctor</h2>
+                    <p>Find and connect with doctors near you for immediate care.</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 MedXpert. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

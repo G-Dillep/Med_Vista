@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedXpert - User Signup</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 420px;
+            max-width: 95%;
+        }
+
+        .form img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+        }
+
+        .form h1 {
+            color: #00796b;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form input[type="text"], .form input[type="email"], .form input[type="password"], .form input[type="date"], .form input[type="tel"], .form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1e7fd;
+            border-radius: 5px;
+            background: #f7fbff;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .form input:focus, .form textarea:focus {
+            border-color: #00796b;
+            outline: none;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group .btn-show {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .form .btn-primary:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ url_for('signup_user') }}" method="post" class="form">
+        <img src="{{ url_for('static', filename='images/images.png') }}" alt="MedXpert Logo">
+        <h1>User Signup</h1>
+
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="fullname" placeholder="Full Name" required>
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <label for="address">Address:</label>
+        <textarea name="address" placeholder="Your Address" rows="3" required></textarea>
+
+        <label for="password">Password:</label>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="button" class="btn-show" onclick="switchPasswordType()">
+                <i id="passIcon" class="bi bi-eye"></i>
+            </button>
+        </div>
+
+        <button class="btn-primary">Sign Up</button>
+    </form>
+
+    <script>
+        function switchPasswordType() {
+            let passInput = document.querySelector("input[type='password']");
+            let passIcon = document.getElementById("passIcon");
+            if (passInput.type === "password") {
+                passInput.type = "text";
+                passIcon.classList.replace("bi-eye", "bi-eye-slash");
+            } else {
+                passInput.type = "password";
+                passIcon.classList.replace("bi-eye-slash", "bi-eye");
+            }
+        }
+    </script>
+</body>
+</html>

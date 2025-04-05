@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedXpert - Welcome</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            animation: slideUp 1s ease-in-out forwards;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            color: #00796b;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 40px;
+            animation: fadeInButtons 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInButtons {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .button {
+            padding: 15px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            outline: none;
+            width: 70%;
+            margin: 0 auto;
+            transform: scale(1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            color: white;
+        }
+
+        .button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .signin {
+            background: linear-gradient(90deg, #00796b, #004d40);
+        }
+
+        .signin:hover {
+            background: linear-gradient(90deg, #004d40, #00796b);
+        }
+
+        .guest {
+            background: linear-gradient(90deg, #388e3c, #2e7d32);
+        }
+
+        .guest:hover {
+            background: linear-gradient(90deg, #2e7d32, #388e3c);
+        }
+
+        .signup {
+            background: linear-gradient(90deg, #0288d1, #01579b);
+        }
+
+        .signup:hover {
+            background: linear-gradient(90deg, #01579b, #0288d1);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+            animation: pulse 2.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .pulse-effect {
+            animation: pulseEffect 1.5s infinite alternate ease-in-out;
+            background: rgba(0, 150, 136, 0.2);
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @keyframes pulseEffect {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="static/images/images.png" alt="MedXpert Logo" class="logo">
+        <h1>Welcome to MedXpert</h1>
+        <p>Your trusted medical companion for all your health needs.</p>
+        <div class="pulse-effect"></div>
+        <div class="button-container">
+            <button class="button signin" onclick="window.location.href='/login_user'">Sign In</button>
+        <button class="button guest" onclick="window.location.href='/guesthomepage'">Continue as Guest</button>
+        <button class="button signup" onclick="window.location.href='/signup_user'">Sign Up / Register User</button>
+        <button class="button signup" onclick="window.location.href='/signup_doctor'">Sign Up / Register Doctor</button>
+        </div>
+    </div>
+</body>
+</html>

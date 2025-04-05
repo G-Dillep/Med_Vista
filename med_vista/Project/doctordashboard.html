@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+    <h1>Doctor Dashboard</h1>
+
+    <h2>Manage Availability</h2>
+    <form action="{{ url_for('add_slot') }}" method="post">
+        <label for="date">Date:</label>
+        <input type="date" name="date" required>
+        <label for="time">Time:</label>
+        <input type="time" name="time" required>
+        <button type="submit">Add Slot</button>
+    </form>
+
+    <h2>Current Availability</h2>
+    <ul>
+        {% for index, slot in availability %}
+            <li>{{ slot[0] }} at {{ slot[1] }} - {{ slot[2] }}
+                <form action="{{ url_for('delete_slot') }}" method="post" style="display:inline;">
+                    <input type="hidden" name="slot_id" value="{{ index }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    
+
+    <h2>Patient Details</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Appointment Slot</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient[0] }}</td>
+                    <td>{{ patient[1] }}</td>
+                    <td>{{ patient[2] }} at {{ patient[3] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
